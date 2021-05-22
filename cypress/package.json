@@ -1,0 +1,21 @@
+{
+  "name": "qatest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "keywords": [],
+  "author": "vitorgamer58",
+  "license": "MIT",
+  "dependencies": {
+    "cpf": "^2.0.1",
+    "cypress-commands": "^1.1.0"
+  },
+  "devDependencies": {
+    "cypress": "^7.3.0",
+    "faker": "^5.5.2"
+  }
+}

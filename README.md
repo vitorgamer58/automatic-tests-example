@@ -1,2 +1,3 @@
-# cypress-tests-example
-Repositório para meus códigos envolvendo testes do cypress
+# automatic-tests-example
+
+Este é um repositório de armazenamento de testes automatizados
