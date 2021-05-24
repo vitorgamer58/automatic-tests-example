@@ -2,3 +2,4 @@
 cypress/cypress/integration/curso/piramide.spec.js
 cypress/cypress/integration/curso/ongs.spec.js
 cypress/cypress/integration/curso/teste.spec.js
+Jest/coverage/
