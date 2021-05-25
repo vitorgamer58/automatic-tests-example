@@ -5,7 +5,9 @@ faker.locale = "pt_BR";
 var name;
 var email;
 const senha = 'abc1234'
-const usarFaker = true //Alterar conforme necessidade
+const usarFaker = false //Alterar conforme necessidade
+
+import '../../support/commandsContas'
 
 if (usarFaker) {
     name = faker.name.findName(); //gera um nome aleatório
@@ -20,6 +22,7 @@ else {
 describe('BarrigaReact', () => { 
     before(() => {
         cy.visit('https://barrigareact.wcaquino.me/')
+        cy.resetApp()
     })
     it('Criar um cadastro', () => {
         if (usarFaker){
@@ -63,7 +66,7 @@ describe('BarrigaReact', () => {
     })
     it('Inserir conta repetida', () => {
         cy.get('[data-test=nome]').clear()
-        cy.get('[data-test=nome]').type('Banco Conta Movimento 2')
+        cy.get('[data-test=nome]').type('Conta mesmo nome')
         cy.get('.btn').click()
         cy.get('.toast').should('be.visible')
         cy.get('.toast').should('contain', '400')

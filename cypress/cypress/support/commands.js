@@ -46,3 +46,42 @@ Cypress.Commands.add('resetApp', () => {
     cy.get(loc.MENU.RESET).click()
 
 })
+
+Cypress.Commands.add('getToken', (user, passwd) => {
+    cy.request({
+        method: 'post',
+        url: 'https://barrigarest.wcaquino.me/signin',
+        body: {
+            "email": user,
+            "senha": passwd,
+            "redirecionar": false
+        }
+    }).its('body.token').should('not.be.empty')
+        .then(token => {
+            return token
+        })
+})
+
+Cypress.Commands.add('resetRest', (token) => {
+    cy.request({
+        method: 'GET',
+        url: 'https://barrigarest.wcaquino.me/reset',
+        headers: { Authorization: `JWT ${token}` }
+    }).then(res => {
+        expect(res.status).to.be.equal(200)
+    })
+
+})
+
+Cypress.Commands.add('getAccountByName', (conta, token) => {
+    cy.request({
+        method: 'GET',
+        url: 'https://barrigarest.wcaquino.me/contas',
+        headers: { Authorization: `JWT ${token}` },
+        qs: {
+            nome: conta
+        }
+    }).then(res => {
+        return res.body[0].id
+    })
+})

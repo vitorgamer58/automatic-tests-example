@@ -15,7 +15,7 @@ const locators = {
     },
     CONTAS: {
         NOME: '[data-test=nome]',
-        XP_BTN_ALTERAR: "//table//td[contains(., 'Conta para alterar')]/..//i[@class='far fa-edit']",
+        FN_XP_BTN_ALTERAR: nome => `//table//td[contains(., '${nome}')]/..//i[@class='far fa-edit']`,
         BTN: '.btn'
     },
     MOVIMENTACAO: {
@@ -28,7 +28,7 @@ const locators = {
     },
     EXTRATO: {
         LINHAS: '.list-group > li',
-        XP_BUSCA_ELEMENTO: "//span[contains(., 'Desc')]/following-sibling::small[contains(., '123')]"
+        FN_XP_BUSCA_ELEMENTO: (desc, value) => `//span[contains(., ${desc})]/following-sibling::small[contains(., ${value})]`
     },
     SALDO: {
         FN_XP_SALDO_CONTA: nome => `//td[contains(., '${nome}')]/../td[2]`
