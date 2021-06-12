@@ -4,3 +4,4 @@ cypress/cypress/integration/curso/ongs.spec.js
 cypress/cypress/integration/curso/teste.spec.js
 Jest/coverage/
 cypress/cypress/integration/curso/teste.js
+Jest/node_modules
